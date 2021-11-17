@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/sg"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Schedule Your Journey"
+        android:textColor="#FF9800"
+        android:textSize="50dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Date :"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_200"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="60dp">
+    </TextView>
+
+    <Button
+        android:id="@+id/selectdate"
+        android:layout_width="200dp"
+        android:text="Select Date"
+        android:layout_margin="20dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:layout_height="60dp">
+    </Button>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Bus Type :"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_200"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp">
+    </TextView>
+
+    <Spinner
+        android:id="@+id/bustype"
+        android:layout_width="250dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp">
+
+    </Spinner>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Available Bus :"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_200"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp">
+    </TextView>
+
+    <Spinner
+        android:id="@+id/available_bus"
+        android:layout_width="250dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp">
+
+    </Spinner>
+
+
+
+
+    <Button
+        android:id="@+id/booknow"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:textSize="20dp"
+        android:text="Book now "
+        android:textStyle="bold"
+        android:backgroundTint="#FF9800"
+        android:textColor="@android:color/white">
+    </Button>
+
+
+
+
+
+
+
+
+
+</LinearLayout>
