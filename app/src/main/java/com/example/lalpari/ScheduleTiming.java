@@ -19,13 +19,18 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ScheduleTiming extends AppCompatActivity {
     Button selecttime , selectdate ,booknow;
@@ -60,7 +65,7 @@ public class ScheduleTiming extends AppCompatActivity {
         selectdate = findViewById(R.id.selectdate);
         booknow = findViewById(R.id.booknow);
         try {
-            busdata = new JSONObject("{\"Bookings\":{\"Non_AC_Bus\":{\"8-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"7:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"9-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"10-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"9:00 pm\"],\"11-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"8:00 pm\"]},\"AC_Bus\":{\"8-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"7:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"9-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"10-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"9:00 pm\"],\"11-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"8:00 pm\"]}}}");
+            busdata = new JSONObject("{\"Bookings\":{\"Non_AC_Bus\":{\"8-3-2022\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"7:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"9-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"10-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"9:00 pm\"],\"11-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"8:00 pm\"]},\"AC_Bus\":{\"8-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"7:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"9-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"10-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"9:00 pm\"],\"11-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"8:00 pm\"]}}}");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -71,6 +76,7 @@ public class ScheduleTiming extends AppCompatActivity {
             public void onClick(View view) {
                 Log.e("TAG","onClick: " );
                 DatePickerDialog datePickerDialog = new DatePickerDialog(ScheduleTiming.this);
+                datePickerDialog.getDatePicker().setMinDate(Calendar.getInstance().getTimeInMillis());
                 datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int dayofMonth) {
@@ -188,8 +194,21 @@ public class ScheduleTiming extends AppCompatActivity {
                     Bookings.put("Date",selectdate.getText().toString());
                     Bookings.put("Bus_Type",Bustype.getSelectedItem().toString());
                     Bookings.put("Bus_Time",availablebus.getSelectedItem().toString());
+                    Map<String,Object> map = new HashMap<>();
+                    map.put("Source",source);
+                    map.put("Destination",destination);
+                    map.put("Date",selectdate.getText().toString());
+                    map.put("Bus_Type",Bustype.getSelectedItem().toString());
+                    map.put("Bus_Time",availablebus.getSelectedItem().toString());
+                    map.put("User_id",preferences.getString("mobile","NA"));
 
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = database.getReferenceFromUrl("https://swift-ride-22040-default-rtdb.firebaseio.com/user/"+preferences.getString("mobile","NA")+"/Bookings");
 
+                    Map<String,Object> map1 = new HashMap<>();
+                    String key = preferences.getString("mobile","NA")+"-"+selectdate.getText().toString()+"-"+availablebus.getSelectedItem().toString();
+                    map1.put(key,map);
+                    reference.updateChildren(map1);
                     Bookinglist = new JSONArray(preferences.getString("Bookings",""));
                     Bookinglist.put(Bookings);
 
@@ -203,8 +222,11 @@ public class ScheduleTiming extends AppCompatActivity {
                 }
 
                 Intent reviewbooking = new Intent(ScheduleTiming.this,review_booking.class);
-                reviewbooking.putExtra("Bustype",Bustype.getSelectedItem().toString());
-                reviewbooking.putExtra("selectbus",availablebus.getSelectedItem().toString());
+                reviewbooking.putExtra("Source",source);
+                reviewbooking.putExtra("Destination",destination);
+                reviewbooking.putExtra("Date",selectdate.getText().toString());
+                reviewbooking.putExtra("Bus_Type",Bustype.getSelectedItem().toString());
+                reviewbooking.putExtra("Bus_Time",availablebus.getSelectedItem().toString());
                 startActivity(reviewbooking);
 
 

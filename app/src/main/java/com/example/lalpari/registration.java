@@ -18,7 +18,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class registration extends AppCompatActivity {
     EditText firstname, middlename, lastname, mail, password, confirm, mobile_no;
@@ -26,6 +32,8 @@ public class registration extends AppCompatActivity {
     Button submit;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,27 @@ public class registration extends AppCompatActivity {
             startActivity(new Intent(registration.this, SelectBus.class));
             finish();
         }
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("user");
+
+//        Map<String,Object> objectMap= new HashMap<>();
+//        objectMap.put("Name","Pruthvi");
+//        objectMap.put("Last","yadav");
+//        objectMap.put("dob","6/12/1997");
+//        objectMap.put("email","pruthvi@gmail.com");
+//        Map<String,Object> pruthvi= new HashMap<>();
+//        pruthvi.put("pruthviraj",objectMap);
+//
+//
+//        Map<String,Object> objectMap1  = new HashMap<>();
+//        objectMap1.put("Name","shubham");
+//        objectMap1.put("Last","teli");
+//        objectMap1.put("dob","6/12/1997");
+//        objectMap1.put("email","shubham@gmail.com");
+//        Map<String,Object> shubham= new HashMap<>();
+//        shubham.put("shubham",objectMap1);
+//
+//        databaseReference.updateChildren(pruthvi);
         firstname = findViewById(R.id.et_first_name);
         middlename = findViewById(R.id.et_middle_name);
         lastname = findViewById(R.id.et_last_name);
@@ -127,6 +156,20 @@ public class registration extends AppCompatActivity {
                     userdetails.put("password", password.getText().toString());
 //                    userdetails.put("dob",dd.getText().toString() + "/" +mm.getText().toString() + "/"+yyyy.getText().toString());
                     userlist = new JSONObject(preferences.getString("userlist", "{}"));
+
+                    Map<String,Object> user  = new HashMap<>();
+//                    user.put("firstname",mail.getText().toString().replace("@","").replace(".",""));
+                    user.put("firstname", firstname.getText().toString());
+                    user.put("lastname", lastname.getText().toString());
+                    user.put("middlename", middlename.getText().toString());
+                    user.put("mobile_no", mobile_no.getText().toString());
+                    user.put("email", mail.getText().toString());
+                    user.put("password", password.getText().toString());
+                    Map<String,Object> userdata = new HashMap<>();
+                    userdata.put(mobile_no.getText().toString(),user);
+
+                    databaseReference.updateChildren(userdata);
+
 
                     if (userlist.has(mail.getText().toString())) {
                         Toast.makeText(registration.this, "User Already Exits", Toast.LENGTH_SHORT).show();
