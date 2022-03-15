@@ -46,6 +46,8 @@ public class registration extends AppCompatActivity {
             startActivity(new Intent(registration.this, SelectBus.class));
             finish();
         }
+
+
         firstname = findViewById(R.id.et_first_name);
         middlename = findViewById(R.id.et_middle_name);
         lastname = findViewById(R.id.et_last_name);
