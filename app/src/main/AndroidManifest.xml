@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lalpari">
         <activity
+            android:name=".MyProfile"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
             android:name=".review_booking"
             android:exported="true" />
         <activity
             android:name=".row"
-            android:exported="true" />
-        <activity
-            android:name=".Home"
             android:exported="true" />
         <activity
             android:name=".ScheduleTiming"
@@ -28,7 +31,7 @@
             android:name=".registration"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

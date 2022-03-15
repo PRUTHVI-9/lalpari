@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signin"
+    android:background="@drawable/login"
     android:orientation="vertical">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -52,6 +53,7 @@
                     android:layout_marginTop="20dp"
                     android:fontFamily="cursive"
                     android:gravity="center"
+                    android:singleLine="true"
                     android:hint="First Name">
 
                 </EditText>
@@ -66,6 +68,7 @@
                     android:layout_marginTop="20dp"
                     android:fontFamily="cursive"
                     android:gravity="center"
+                    android:singleLine="true"
                     android:hint="Middle Name"></EditText>
 
 
@@ -78,6 +81,7 @@
                     android:layout_marginTop="20dp"
                     android:fontFamily="cursive"
                     android:gravity="center"
+                    android:singleLine="true"
                     android:hint="Last Name">
 
                 </EditText>
@@ -199,6 +203,12 @@
                 android:textColor="#3F51B5"
                 android:textSize="25dp"></TextView>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
 
             <EditText
                 android:id="@+id/et_password"
@@ -213,6 +223,17 @@
                 android:inputType="textPassword">
 
             </EditText>
+
+                <Button
+                    android:id="@+id/showhide"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="show"></Button>
+
+
+            </LinearLayout>
+
 
 
             <TextView
@@ -261,5 +282,5 @@
 
         </LinearLayout>
 
-    </ScrollView>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

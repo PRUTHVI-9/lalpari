@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/sg"
+    android:background="@drawable/login"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
 
 
     <TextView
@@ -13,7 +20,7 @@
         android:fontFamily="serif"
         android:gravity="center"
         android:text="Schedule Your Journey"
-        android:textColor="#FF9800"
+        android:textColor="#F44336"
         android:textSize="50dp"
         android:textStyle="bold"></TextView>
 
@@ -23,7 +30,7 @@
         android:text="Select Date :"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:textColor="@color/teal_200"
+        android:textColor="#F44336"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="60dp">
@@ -45,7 +52,7 @@
         android:text="Select Bus Type :"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:textColor="@color/teal_200"
+        android:textColor="#F44336"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="40dp">
@@ -67,7 +74,7 @@
         android:text="Select Available Bus :"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:textColor="@color/teal_200"
+        android:textColor="#F44336"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="40dp">
@@ -83,9 +90,6 @@
 
     </Spinner>
 
-
-
-
     <Button
         android:id="@+id/booknow"
         android:layout_width="300dp"
@@ -95,16 +99,10 @@
         android:textSize="20dp"
         android:text="Book now "
         android:textStyle="bold"
-        android:backgroundTint="#FF9800"
-        android:textColor="@android:color/white">
+        android:backgroundTint="#8BB989"
+        android:textColor="@android:color/black">
     </Button>
 
+    </LinearLayout>
 
-
-
-
-
-
-
-
-</LinearLayout>
+</ScrollView>

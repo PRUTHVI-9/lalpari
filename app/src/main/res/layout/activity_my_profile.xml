@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:src="@drawable/account">
+
+    </ImageView>
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:textSize="30dp">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_firstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="first name"
+            android:layout_margin="15dp"
+            android:textSize="20dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_midlename"
+            android:layout_margin="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="midle name"
+            android:textSize="20dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="last name"
+            android:layout_margin="15dp"
+            android:textSize="20dp"></TextView>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email address"
+        android:textSize="30dp"></TextView>
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="email address"
+        android:layout_margin="15dp"
+        android:textSize="20dp"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mobile no"
+        android:textSize="30dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="mobile no"
+        android:layout_margin="15dp"
+        android:textSize="20dp"></TextView>
+
+    </LinearLayout>
+
+
+
+</ScrollView>

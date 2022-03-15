@@ -31,7 +31,8 @@
             android:layout_marginTop="50dp"
             android:layout_marginRight="10dp"
             android:fontFamily="sans-serif"
-            android:hint="Email address :-"
+            android:hint="Mobile no :-"
+            android:maxLength="10"
             android:textColorHint="@android:color/black"
             android:textSize="20sp"></EditText>
 

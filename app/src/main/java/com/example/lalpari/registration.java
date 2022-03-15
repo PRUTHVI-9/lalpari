@@ -18,14 +18,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class registration extends AppCompatActivity {
     EditText firstname, middlename, lastname, mail, password, confirm, mobile_no;
     TextView date;
-    Button submit;
+    Button submit,show;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +56,10 @@ public class registration extends AppCompatActivity {
         mobile_no = findViewById(R.id.et_number);
         password = findViewById(R.id.et_password);
         confirm = findViewById(R.id.et_confirm_password);
+        show = findViewById(R.id.showhide);
         submit = findViewById(R.id.btn_submit);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReferenceFromUrl("https://swift-ride-22040-default-rtdb.firebaseio.com/user");
         date.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
@@ -67,6 +78,10 @@ public class registration extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+
+
+
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,30 +134,55 @@ public class registration extends AppCompatActivity {
                     Toast.makeText(registration.this, "password missmatched", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                try {
-                    userdetails.put("firstname", firstname.getText().toString());
-                    userdetails.put("lastname", lastname.getText().toString());
-                    userdetails.put("middlename", middlename.getText().toString());
-                    userdetails.put("mobile_no", mobile_no.getText().toString());
-                    userdetails.put("password", password.getText().toString());
-//                    userdetails.put("dob",dd.getText().toString() + "/" +mm.getText().toString() + "/"+yyyy.getText().toString());
-                    userlist = new JSONObject(preferences.getString("userlist", "{}"));
+//                try {
+//                    userdetails.put("firstname", firstname.getText().toString());
+//                    userdetails.put("lastname", lastname.getText().toString());
+//                    userdetails.put("middlename", middlename.getText().toString());
+//                    userdetails.put("mobile_no", mobile_no.getText().toString());
+//                    userdetails.put("password", password.getText().toString());
+////                    userdetails.put("dob",dd.getText().toString() + "/" +mm.getText().toString() + "/"+yyyy.getText().toString());
+//                    userlist = new JSONObject(preferences.getString("userlist", "{}"));
+//
+//                    if (userlist.has(mail.getText().toString())) {
+//                        Toast.makeText(registration.this, "User Already Exits", Toast.LENGTH_SHORT).show();
+//                        return;
+//                    } else {
+//                        userlist.put(mail.getText().toString(), userdetails);
+//                        editor.putString("userlist", userlist.toString());
+//                        editor.putBoolean("is_login",true);
+//                        editor.putString("Mobile",mobile_no.getText().toString());
+//                        editor.commit();
+//                        Intent gotoHome = new Intent(registration.this,ScheduleTiming.class);
+//                        startActivity(gotoHome);
+//
+//
+//                    }
+//
+//                    Log.e("TAG", userlist.toString());
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//
+//                }
 
-                    if (userlist.has(mail.getText().toString())) {
-                        Toast.makeText(registration.this, "User Already Exits", Toast.LENGTH_SHORT).show();
-                        return;
-                    } else {
-                        userlist.put(mail.getText().toString(), userdetails);
-                        editor.putString("userlist", userlist.toString());
-                        editor.commit();
-                        Intent gotoHome = new Intent(registration.this,ScheduleTiming.class);
-                        startActivity(gotoHome);
-                    }
-                    Log.e("TAG", userlist.toString());
-                } catch (Exception e) {
-                    e.printStackTrace();
+                Map<String,Object> objectMap = new HashMap<>();
+                objectMap.put("email",mail.getText().toString());
+                objectMap.put("firstname",firstname.getText().toString());
+                objectMap.put("midlename",middlename.getText().toString());
+                objectMap.put("lastname",lastname.getText().toString());
+                objectMap.put("mobile_no",mobile_no.getText().toString());
+                objectMap.put("password",password.getText().toString());
+                Map<String,Object> userdata = new HashMap<>();
+                userdata.put(mobile_no.getText().toString(),objectMap);
 
-                }
+
+                reference.updateChildren(userdata);
+
+                Intent intent = new Intent(registration.this,SelectBus.class);
+                startActivity(intent);
+                finish();
+
+
+
             }
         });
 
@@ -150,3 +190,4 @@ public class registration extends AppCompatActivity {
 
 
 }
+

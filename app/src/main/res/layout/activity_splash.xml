@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:src="@drawable/bus"
+        android:layout_height="300dp">
+    </ImageView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center"
+        android:text="welcome"
+        android:textColor="#F5CF154A"
+        android:textSize="50dp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center"
+        android:text="To"
+        android:textColor="#F5CF154A"
+        android:textSize="50dp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center"
+        android:text="Lalpari"
+        android:textColor="#F5CF154A"
+        android:textSize="50dp">
+
+    </TextView>
+
+
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.lalpari;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -8,11 +9,19 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     Button registration;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,58 +50,72 @@ public class MainActivity extends AppCompatActivity {
 
         mobile = findViewById(R.id.et_mobile);
         password = findViewById(R.id.et_password);
-        preferences = getSharedPreferences("MyApp",MODE_PRIVATE);
+        preferences = getSharedPreferences("MyApp", MODE_PRIVATE);
         editor = preferences.edit();
         log_in = findViewById(R.id.btn_login);
-        registration = findViewById(R.id.btn_register); 
+        registration = findViewById(R.id.btn_register);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReferenceFromUrl("https://swift-ride-22040-default-rtdb.firebaseio.com/user");
+
         log_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (mobile.getText().toString().isEmpty()){
+                if (mobile.getText().toString().isEmpty()) {
                     Toast.makeText(MainActivity.this, "mobile no should not be empty", Toast.LENGTH_SHORT).show();
                     return;
-                } if (password.getText().toString().isEmpty()){
+                }
+                if (password.getText().toString().isEmpty()) {
                     Toast.makeText(MainActivity.this, "password should not be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                try {
-                    JSONObject userlist = new JSONObject(preferences.getString("userlist","{}"));
-                    Log.e("TAG",userlist.toString());
-                    if (userlist.has(mobile.getText().toString())){
-                        Toast.makeText(MainActivity.this, "user exits in list", Toast.LENGTH_SHORT).show();
-                        JSONObject userdetails = new JSONObject();
-                        userdetails = userlist.getJSONObject(mobile.getText().toString());
-                        String pwd = userdetails.getString("password");
-                        String pw = password.getText().toString();
-                        if (pw.equals(pwd)){
-                            editor.putBoolean("is_login",true);
-                            editor.commit();
-                            Intent pass = new Intent(MainActivity.this,SelectBus.class);
-                            startActivity(pass);
-                            finish();
+
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Log.e("TAG", "onDataChange: " + snapshot.toString());
+                        boolean isUserExist = snapshot.child(mobile.getText().toString()).exists();
+                        if (isUserExist) {
+                            String pw = password.getText().toString();
+                            String dbpw = snapshot.child(mobile.getText().toString()).child("password").getValue().toString();
+                            if (pw.equals(dbpw)) {
+                                Intent intent = new Intent(MainActivity.this, SelectBus.class);
+                                startActivity(intent);
+                                finish();
+                                editor.putString("Mobile",mobile.getText().toString());
+                                editor.putBoolean("is_login",true);
+                                editor.commit();
+                            } else {
+                                Toast.makeText(MainActivity.this, "password mismatched", Toast.LENGTH_SHORT).show();
+                            }
                         }else {
-                            Toast.makeText(MainActivity.this, "password is incorrect , try new", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "user not exist please register", Toast.LENGTH_SHORT).show();
                         }
-                        Log.e("TAG","+password");
+
+
                     }
-                }catch (JSONException e){
-                    e.printStackTrace();
-                }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
             }
         });
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent new_registration = new Intent(MainActivity.this,registration.class);
+                Intent new_registration = new Intent(MainActivity.this, registration.class);
                 startActivity(new_registration);
                 finish();
+
             }
         });
 
 
     }
+
     @Override
     public void onBackPressed() {
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
@@ -111,4 +136,6 @@ public class MainActivity extends AppCompatActivity {
         alert.create();
         alert.show();
     }
+
+
 }
