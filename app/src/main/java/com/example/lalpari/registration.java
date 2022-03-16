@@ -166,6 +166,9 @@ public class registration extends AppCompatActivity {
 //
 //                }
 
+
+
+
                 Map<String,Object> objectMap = new HashMap<>();
                 objectMap.put("email",mail.getText().toString());
                 objectMap.put("firstname",firstname.getText().toString());

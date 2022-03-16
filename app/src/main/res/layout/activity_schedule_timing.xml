@@ -99,7 +99,7 @@
         android:textSize="20dp"
         android:text="Book now "
         android:textStyle="bold"
-        android:backgroundTint="#8BB989"
+        android:background="@drawable/btn_bg"
         android:textColor="@android:color/black">
     </Button>
 
