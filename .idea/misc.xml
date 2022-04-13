@@ -3,29 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/drawable/bg.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/drawable/btn_bg.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/drawable/button_bg.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/drawable/logout_foreground.xml" value="0.2037037037037037" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_home.xml" value="0.1961184882533197" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_main.xml" value="0.1961184882533197" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_my_profile.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_registration.xml" value="0.176" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_review_booking.xml" value="0.1961184882533197" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_row.xml" value="0.2" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_schedule_timing.xml" value="0.2" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_select_bus.xml" value="0.1961184882533197" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/menu/home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/menu/my_menu.xml" value="0.2" />
+        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_home.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_recycler.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_registration.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_review_booking.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_row.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_schedule_timing.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_select_bus.xml" value="0.25" />
+        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/pruth.DESKTOP-5P28CHH/AndroidStudioProjects/lalpari/app/src/main/res/layout/list_row.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/pruth/.gradle/caches/transforms-3/4ecd700c773cf5624732e3577602f1ea/transformed/appcompat-1.3.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.2421875" />
+        <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/drawable/bg_bg.xml" value="0.25025641025641027" />
         <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_home.xml" value="0.2625" />
         <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_main.xml" value="0.1941747572815534" />
+        <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_my_profile.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_registration.xml" value="0.536" />
+        <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_review_booking.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_row.xml" value="0.2625" />
         <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_schedule_timing.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_select_bus.xml" value="0.264" />
-        <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/menu/my_menu.xml" value="0.2421875" />
+        <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_select_bus.xml" value="0.152" />
+        <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/activity_splash.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/custom_dialog_layout.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/layout/list_row.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/menu/home.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/menu/my_menu.xml" value="0.2" />
         <entry key="..\:/Users/pruth/AndroidStudioProjects/lalpari/app/src/main/res/mipmap-anydpi-v26/logout.xml" value="0.2743589743589744" />
         <entry key="..\:/Users/pruth/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.25416666666666665" />
       </map>

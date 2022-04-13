@@ -9,91 +9,124 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="350dp">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:src="@drawable/account">
 
-    </ImageView>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="300dp"
+                android:id="@+id/profile_image"
+                android:layout_marginTop="20dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bus"
+                android:layout_centerInParent="true"
+                ></de.hdodenhof.circleimageview.CircleImageView>
 
-    <TextView
-        android:layout_marginTop="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="User Name"
-        android:textSize="30dp">
 
-    </TextView>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:id="@+id/camera"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/teal_700"
+                android:src="@drawable/ic_camera"
+                android:layout_marginRight="80dp"
+                android:layout_marginBottom="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        </RelativeLayout>
+
 
         <TextView
-            android:id="@+id/tv_firstname"
-            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="first name"
-            android:layout_margin="15dp"
-            android:textSize="20dp">
+            android:layout_marginTop="50dp"
+            android:text="User Name :-"
+            android:layout_marginLeft="10dp"
+            android:textSize="30dp">
 
         </TextView>
 
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_firstname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="first name"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_midlename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="midle name"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_lastname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="last name"
+                android:textSize="20dp"></TextView>
+
+
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/tv_midlename"
-            android:layout_margin="15dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email address :-"
+            android:textSize="30dp"></TextView>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="midle name"
-            android:textSize="20dp">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/tv_lastname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="last name"
             android:layout_margin="15dp"
+            android:text="email address"
             android:textSize="20dp"></TextView>
 
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mobile no :-"
+            android:textSize="30dp">
+
+        </TextView>
+
+        <TextView
+
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="mobile no"
+            android:textSize="20dp"></TextView>
 
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email address"
-        android:textSize="30dp"></TextView>
-
-    <TextView
-        android:id="@+id/tv_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="email address"
-        android:layout_margin="15dp"
-        android:textSize="20dp"></TextView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mobile no"
-        android:textSize="30dp">
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/tv_mobile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="mobile no"
-        android:layout_margin="15dp"
-        android:textSize="20dp"></TextView>
-
-    </LinearLayout>
-
 
 
 </ScrollView>

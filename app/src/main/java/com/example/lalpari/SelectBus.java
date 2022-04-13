@@ -40,6 +40,13 @@ public class SelectBus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_bus);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SelectBus.this,MainActivity.class));
+                finish();
+            }
+        });
         setSupportActionBar(toolbar);
         database = FirebaseDatabase.getInstance();
         preferences = getSharedPreferences("MyApp", MODE_PRIVATE);
