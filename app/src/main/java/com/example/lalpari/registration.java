@@ -47,7 +47,6 @@ public class registration extends AppCompatActivity {
             finish();
         }
 
-
         firstname = findViewById(R.id.et_first_name);
         middlename = findViewById(R.id.et_middle_name);
         lastname = findViewById(R.id.et_last_name);
@@ -61,7 +60,7 @@ public class registration extends AppCompatActivity {
         show = findViewById(R.id.showhide);
         submit = findViewById(R.id.btn_submit);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReferenceFromUrl("https://swift-ride-22040-default-rtdb.firebaseio.com/user");
+        DatabaseReference reference = database.getReferenceFromUrl("https://lalpari-default-rtdb.firebaseio.com/user");
         date.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
@@ -178,7 +177,6 @@ public class registration extends AppCompatActivity {
                 objectMap.put("password",password.getText().toString());
                 Map<String,Object> userdata = new HashMap<>();
                 userdata.put(mobile_no.getText().toString(),objectMap);
-
 
                 reference.updateChildren(userdata);
 

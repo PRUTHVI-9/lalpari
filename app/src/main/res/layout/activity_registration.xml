@@ -33,10 +33,10 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/great_vibes"
+                android:fontFamily="@font/aclonica"
                 android:text="Full name :-"
                 android:textColor="#3F51B5"
-                android:textSize="25dp"></TextView>
+                android:textSize="23dp"></TextView>
 
 
             <LinearLayout
@@ -49,12 +49,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="cursive"
+                    android:fontFamily="@font/aclonica"
                     android:gravity="center"
-                    android:singleLine="true"
-                    android:hint="First Name">
+                    android:hint="First Name"
+                    android:singleLine="true">
 
                 </EditText>
 
@@ -66,10 +66,10 @@
                     android:layout_gravity="left"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="cursive"
+                    android:fontFamily="@font/aclonica"
                     android:gravity="center"
-                    android:singleLine="true"
-                    android:hint="Middle Name"></EditText>
+                    android:hint="Middle Name"
+                    android:singleLine="true"></EditText>
 
 
                 <EditText
@@ -79,10 +79,10 @@
                     android:layout_gravity="left"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="cursive"
+                    android:fontFamily="@font/aclonica"
                     android:gravity="center"
-                    android:singleLine="true"
-                    android:hint="Last Name">
+                    android:hint="Last Name"
+                    android:singleLine="true">
 
                 </EditText>
             </LinearLayout>
@@ -93,10 +93,10 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/great_vibes"
+                android:fontFamily="@font/aclonica"
                 android:text="Date of birth :-"
                 android:textColor="#3F51B5"
-                android:textSize="25dp"></TextView>
+                android:textSize="23dp"></TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -110,11 +110,10 @@
                     android:layout_gravity="left"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="cursive"
+                    android:fontFamily="@font/aclonica"
                     android:gravity="center"
                     android:text="Select date"
-                    android:textSize="20dp"
-                    >
+                    android:textSize="17dp">
 
                 </TextView>
 
@@ -127,10 +126,11 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/great_vibes"
+                android:fontFamily="@font/aclonica"
+                android:includeFontPadding="true"
                 android:text="Mobile no :-"
                 android:textColor="#3F51B5"
-                android:textSize="25dp"></TextView>
+                android:textSize="23dp"></TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -143,6 +143,7 @@
                     android:layout_gravity="left"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="20dp"
+                    android:fontFamily="@font/aclonica"
                     android:gravity="center"
                     android:hint="91">
 
@@ -156,7 +157,7 @@
                     android:layout_gravity="left"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="cursive"
+                    android:fontFamily="@font/aclonica"
                     android:gravity="center"
                     android:hint="9999999999"
                     android:inputType="number"
@@ -171,10 +172,10 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/great_vibes"
+                android:fontFamily="@font/aclonica"
                 android:text="Email address :-"
                 android:textColor="#3F51B5"
-                android:textSize="25dp"></TextView>
+                android:textSize="23dp"></TextView>
 
 
             <EditText
@@ -184,7 +185,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="cursive"
+                android:fontFamily="@font/aclonica"
                 android:gravity="center"
                 android:hint="Type your email address"
                 android:inputType="textEmailAddress">
@@ -198,10 +199,10 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/great_vibes"
+                android:fontFamily="@font/aclonica"
                 android:text="Password :-"
                 android:textColor="#3F51B5"
-                android:textSize="25dp"></TextView>
+                android:textSize="23dp"></TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -209,20 +210,19 @@
                 android:orientation="horizontal">
 
 
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/aclonica"
+                    android:gravity="center"
+                    android:hint="Type your password"
+                    android:inputType="textPassword">
 
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="cursive"
-                android:gravity="center"
-                android:hint="Type your password"
-                android:inputType="textPassword">
-
-            </EditText>
+                </EditText>
 
                 <Button
                     android:id="@+id/showhide"
@@ -235,17 +235,16 @@
             </LinearLayout>
 
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/great_vibes"
+                android:fontFamily="@font/aclonica"
                 android:text="Confirm password :-"
                 android:textColor="#3F51B5"
-                android:textSize="25dp"></TextView>
+                android:textSize="23dp"></TextView>
 
 
             <EditText
@@ -255,7 +254,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="cursive"
+                android:fontFamily="@font/aclonica"
                 android:gravity="center"
                 android:hint="Type your confirm password"
                 android:inputType="textPassword">
@@ -271,7 +270,7 @@
                 android:layout_marginRight="82dp"
                 android:layout_marginBottom="20dp"
                 android:background="#4BE16B"
-                android:fontFamily="@font/bungee_shade"
+                android:fontFamily="@font/aclonica"
                 android:text="SUBMIT"
                 android:textColor="@android:color/white"
                 android:textSize="15sp"

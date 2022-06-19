@@ -26,6 +26,8 @@ import com.google.firebase.database.ValueEventListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText mobile;
@@ -34,20 +36,27 @@ public class MainActivity extends AppCompatActivity {
     Button registration;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-
+    SqliteDB db;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        db = new SqliteDB(this);
 //        boolean isloggedIn = preferences.getBoolean("is_login", false);
 //        if (isloggedIn) {
 //            startActivity(new Intent(MainActivity.this, SelectBus.class));
 //            finish();
 //        }
+        db.storeUser("Pankaj","Jadhav");
 
+        Map<String,String >map =  db.getDataforname("Pankaj");
+
+       String id = map.get(SqliteDB.KEY_ID);
+       String name = map.get(SqliteDB.KEY_FIRST);
+       String last = map.get(SqliteDB.KEY_LAST);
+        Log.e("TAG", "onCreate: "+id+"-"+name+"-"+last );
         mobile = findViewById(R.id.et_mobile);
         password = findViewById(R.id.et_password);
         preferences = getSharedPreferences("MyApp", MODE_PRIVATE);
@@ -55,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         log_in = findViewById(R.id.btn_login);
         registration = findViewById(R.id.btn_register);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReferenceFromUrl("https://swift-ride-22040-default-rtdb.firebaseio.com/user");
+        DatabaseReference reference = database.getReferenceFromUrl("https://lalpari-default-rtdb.firebaseio.com/user");
 
         log_in.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,13 +91,13 @@ public class MainActivity extends AppCompatActivity {
                                 Intent intent = new Intent(MainActivity.this, SelectBus.class);
                                 startActivity(intent);
                                 finish();
-                                editor.putString("Mobile",mobile.getText().toString());
-                                editor.putBoolean("is_login",true);
+                                editor.putString("Mobile", mobile.getText().toString());
+                                editor.putBoolean("is_login", true);
                                 editor.commit();
                             } else {
                                 Toast.makeText(MainActivity.this, "password mismatched", Toast.LENGTH_SHORT).show();
                             }
-                        }else {
+                        } else {
                             Toast.makeText(MainActivity.this, "user not exist please register", Toast.LENGTH_SHORT).show();
                         }
 
