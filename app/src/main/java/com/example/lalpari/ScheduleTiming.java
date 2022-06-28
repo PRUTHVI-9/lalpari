@@ -65,7 +65,7 @@ public class ScheduleTiming extends AppCompatActivity {
         selectdate = findViewById(R.id.selectdate);
         booknow = findViewById(R.id.booknow);
         try {
-            busdata = new JSONObject("{\"Bookings\":{\"Non_AC_Bus\":{\"1-3-2022\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"7:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"2-3-2022\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"10-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"9:00 pm\"],\"11-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"8:00 pm\"]},\"AC_Bus\":{\"8-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"7:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"9-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"10-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"9:00 pm\"],\"11-11-2021\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"8:00 pm\"]}}}");
+            busdata = new JSONObject("{\"Bookings\":{\"Non_AC_Bus\":{\"28-6-2022\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"7:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"29-6-2022\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"30-6-2022\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"9:00 pm\"],\"1-7-2022\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"8:00 pm\"]},\"AC_Bus\":{\"2-7-2022\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"7:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"3-7-2022\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"8:00 pm\",\"9:00 pm\"],\"4-7-2022\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"9:00 pm\"],\"5-7-2022\":[\"10:00 am\",\"10:15 am\",\"10:30 am\",\"11:00 am\",\"11:15 am\",\"11:30 am\",\"2:00 pm\",\"6:00 pm\",\"7:00 pm\",\"8:00 pm\"]}}}");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -204,7 +204,7 @@ public class ScheduleTiming extends AppCompatActivity {
                     objectMap.put("Bus_Time",availablebus.getSelectedItem().toString());
 
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference reference = database.getReferenceFromUrl("https://swift-ride-22040-default-rtdb.firebaseio.com/user/"+preferences.getString("Mobile","NA")+"/Bookings");
+                    DatabaseReference reference = database.getReferenceFromUrl("https://lalpari-default-rtdb.firebaseio.com/user/"+preferences.getString("Mobile","NA")+"/Bookings");
 
                     Map<String,Object> objectMap1 = new HashMap<>();
                     String key = preferences.getString("Mobile","NA")+"-"+selectdate.getText().toString()+"-"+availablebus.getSelectedItem().toString();

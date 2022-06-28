@@ -49,8 +49,8 @@ public class SelectBus extends AppCompatActivity {
         });
         setSupportActionBar(toolbar);
         database = FirebaseDatabase.getInstance();
-        preferences = getSharedPreferences("MyApp", MODE_PRIVATE);
-        reference = database.getReferenceFromUrl("https://swift-ride-22040-default-rtdb.firebaseio.com/user" + preferences.getString("mobile", "NA"));
+        preferences = getSharedPreferences("MyApp", MODE_PRIVATE);//https://lalpari-default-rtdb.firebaseio.com/user/pruthviyadav37gmailcom
+        reference = database.getReferenceFromUrl("https://lalpari-default-rtdb.firebaseio.com/user/" + preferences.getString("mobile", "NA"));
         editor = preferences.edit();
         source = findViewById(R.id.source);
         destination = findViewById(R.id.destination);

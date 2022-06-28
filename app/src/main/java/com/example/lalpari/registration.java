@@ -61,6 +61,8 @@ public class registration extends AppCompatActivity {
         submit = findViewById(R.id.btn_submit);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReferenceFromUrl("https://lalpari-default-rtdb.firebaseio.com/user");
+
+        //https://lalpari-default-rtdb.firebaseio.com/user
         date.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
@@ -79,9 +81,6 @@ public class registration extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-
-
-
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,8 +165,6 @@ public class registration extends AppCompatActivity {
 //                }
 
 
-
-
                 Map<String,Object> objectMap = new HashMap<>();
                 objectMap.put("email",mail.getText().toString());
                 objectMap.put("firstname",firstname.getText().toString());
@@ -177,8 +174,9 @@ public class registration extends AppCompatActivity {
                 objectMap.put("password",password.getText().toString());
                 Map<String,Object> userdata = new HashMap<>();
                 userdata.put(mobile_no.getText().toString(),objectMap);
-
-                reference.updateChildren(userdata);
+                editor.putString("mobile",mobile_no.getText().toString());
+                editor.commit();
+                reference.child(mobile_no.getText().toString()).updateChildren(objectMap);
 
                 Intent intent = new Intent(registration.this,SelectBus.class);
                 startActivity(intent);
